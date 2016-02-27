@@ -29,7 +29,7 @@ def housescrapy(url, data=None):
         }
         print(data)
 urls = ['http://hz.xiaozhu.com/search-duanzufang-p{}-0/?startDate=2016-03-01&endDate=2016-03-07'.format(str(i))
-        for i in range(1,6)]
+        for i in range(1,6)]#这个网址会失效
 '''
 #page_list > ul > li:nth-child(1) > a
 '''
@@ -39,7 +39,7 @@ for url in urls:
     wb_data = requests.get(url)
     #time.sleep(1)
     soup = BeautifulSoup(wb_data.text, 'lxml')
-    urls2.extend(soup.select('ul > li > a[target="_blank"]'))
+    urls2.extend(soup.select('ul > li > a[target="_blank"]'))#注意需要target="_blank"
     print(urls2)
 
 
